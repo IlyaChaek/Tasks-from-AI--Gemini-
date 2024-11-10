@@ -5,3 +5,8 @@
     Исключить неоднозначные символы (например, "l" и "1").
     Создать функцию для проверки надежности сгенерированного пароля.
 '''
+
+import string
+import random
+
+random_password = string.ascii_letters + string.digits + string.punctuation
