@@ -65,7 +65,6 @@ elif lvl == 9:
     a = 50
     mode = 'Может не надо?'
 b = a
-
 #!DEBUG - показ числа вначале игры ЯВЛЯЕТСЯ ЧИТОМ (рекомендуется выключить для полноты эмоций от игры)
 # *DEBUG CODE START
 debug_cheat = 0 #? 1 - turned on / 0 - turned off 
