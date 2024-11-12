@@ -84,10 +84,10 @@ for i in range(a):
         print('Ты выиграл!')
         end_time = time.time() 
         break
-    elif a == 0:
+    elif a <= 0:
         print('Ты проиграл. Заданное число было:', random_number)
-        end_time = time.time()     
         break
+end_time = time.time()     
 game_time_not_formatted = end_time - start_time
 game_time = round(game_time_not_formatted, 2)
 print(f'Время игры: {game_time} секунд')
@@ -99,5 +99,5 @@ elif debug_cheat == 1:
     file.write(f'\nДанные игры(ЧИТ ВКЛЮЧЕН) \nДата(ЧИТ ВКЛЮЧЕН): {current_date}\nВремя(ЧИТ ВКЛЮЧЕН):\n{current_time}\n\n\nЗагаданное число(ЧИТ ВКЛЮЧЕН): {random_number}\nВремя отгадывания(ЧИТ ВКЛЮЧЕН): {game_time}\nКоличество использованных попыток(ЧИТ ВКЛЮЧЕН): {last_attempts}\nКоличество неиспользованных попыток(ЧИТ ВКЛЮЧЕН): {a}\nРежим игры(ЧИТ ВКЛЮЧЕН): {mode}\n')
 elif debug_cheat == 0:
     file.write(f'\nДанные игры \nДата: {current_date}\nВремя:\n{current_time}\n\n\nЗагаданное число: {random_number}\nВремя отгадывания: {game_time}\nКоличество использованных попыток: {last_attempts}\nКоличество неиспользованных попыток: {a}\nРежим игры: {mode}\n')
-
 file.close()
+
