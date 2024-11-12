@@ -6,19 +6,28 @@
     Добавить уровни сложности (разный диапазон чисел).
     Сохранять результаты игры в файл.
 '''
+
+#* Импорты
 import time
 import random
 import os.path
 import datetime
+
+# Создание переменных для отображения даты и времени в файле
 current_date = datetime.datetime.now().strftime('\n%Y-%m-%d')
 current_time = datetime.datetime.now().strftime('%X')
+
+# Создание файла, если он не существует, и добавление текста если файл есть
 if os.path.exists('File_data.txt'):
     file = open('File_data.txt', 'a')
 else:
     file = open('File_data.txt', 'x')
-start_time = time.time()
+
+
+# вывод текста
 print(f'Игра: угадай число!')
 lvl = int(input('Выберите уровень сложности: \n1 - Легко (число от 1 до 10, 10 попыток)\n2 - Средне (число от 1 до 50, 7 попыток)\n3 - Сложно (число от 1 до 100, 5 попыток)\n4 - Эксперт (число от 1 до 100, 3 попытки)\n5 - Нереально (число от 1 до 1.000, 5 попыток)\n6 - БЕЗУМНАЯ НЕВОЗМОЖНОСТЬ (число от 1 до 1.000, 2 попытки)\n7 - ????? (число от 1 до 1.000, 1 попытка)\n8 - Рофл режим (число от 1 до 1.000.000, 15 попыток)\n9 - Может не надо?(число от 1 до 100.000.000, 50 попыток)\nВвод: '))
+# работа с сложностями игры 
 if lvl == 1:
     random_number = random.randint(1,10)
     a = 10
@@ -69,30 +78,43 @@ elif debug_cheat == 2: #hidden cheat
 elif debug_cheat == 0:
     pass
 # *DEBUG CODE END
+# начало отсчёта времени игры
 start_time = time.time()
+# игровая логика
 for i in range(a):
+    # ввод числа
     user_number = int(input('Введите число: '))
+
     if user_number > random_number:
+        # число больше, чем загаданное
         print('Слишком большое число')
         a -= 1
         print(f'Осталось {a} попыток')
+
     elif user_number < random_number:
+        # число меньше чем загаданное
         print('Слишком маленькое число')
         a -= 1
         print(f'Осталось {a} попыток')
+
+        # число равно загаданному (выигрыш)
     elif user_number == random_number:
         print('Ты выиграл!')
-        end_time = time.time() 
         break
+
     elif a <= 0:
+        # проигрыш
         print('Ты проиграл. Заданное число было:', random_number)
         break
+# создание переменной с временем конца игры
 end_time = time.time()     
+# определение времени, за которое игрок угадал / не угадал число
 game_time_not_formatted = end_time - start_time
 game_time = round(game_time_not_formatted, 2)
 print(f'Время игры: {game_time} секунд')
-
+# определение попыток, потраченных игроком
 last_attempts = b - a 
+# проверка был ли чит во время игры или нет (влияет на записанный файл)
 if debug_cheat == 2:
     file.write(f'\nДанные игры \nДата: {current_date}\nВремя:\n{current_time}\n\n\nЗагаданное число: {random_number}\nВремя отгадывания: {game_time}\nКоличество использованных попыток: {last_attempts}\nКоличество неиспользованных попыток: {a}\nРежим игры: {mode}\n')
 elif debug_cheat == 1:
@@ -100,4 +122,3 @@ elif debug_cheat == 1:
 elif debug_cheat == 0:
     file.write(f'\nДанные игры \nДата: {current_date}\nВремя:\n{current_time}\n\n\nЗагаданное число: {random_number}\nВремя отгадывания: {game_time}\nКоличество использованных попыток: {last_attempts}\nКоличество неиспользованных попыток: {a}\nРежим игры: {mode}\n')
 file.close()
-
