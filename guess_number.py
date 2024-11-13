@@ -133,4 +133,4 @@ elif debug_cheat == 1:
     file.write(f'\nДанные игры(ЧИТ ВКЛЮЧЕН) \nДата(ЧИТ ВКЛЮЧЕН): {current_date}\nВремя(ЧИТ ВКЛЮЧЕН):\n{current_time}\n\n\nЗагаданное число(ЧИТ ВКЛЮЧЕН): {random_number}\nВремя отгадывания(ЧИТ ВКЛЮЧЕН): {game_time}\nКоличество использованных попыток(ЧИТ ВКЛЮЧЕН): {last_attempts}\nКоличество неиспользованных попыток(ЧИТ ВКЛЮЧЕН): {a}\nРежим игры(ЧИТ ВКЛЮЧЕН): {mode}\n')
 elif debug_cheat == 0:
     file.write(f'\nДанные игры \nДата: {current_date}\nВремя:\n{current_time}\n\n\nЗагаданное число: {random_number}\nВремя отгадывания: {game_time}\nКоличество использованных попыток: {last_attempts}\nКоличество неиспользованных попыток: {a}\nРежим игры: {mode}\n')
-file.close()
+file.close()    
