@@ -3,13 +3,7 @@
 Усложнение: запись должна производиться в файл.
 '''
 
-
-import os
-if os.path.exists('Tasks_manager_file.txt'):
-    file = open('Tasks_manager_file.txt', 'a')
-else:
-    file = open('Tasks_manager_file.txt', 'x')
-
+file = open('Tasks_manager_file.txt', 'a')
 
 def add_task(task):
     file.write(f'\n{task}\n')
