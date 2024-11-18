@@ -14,7 +14,7 @@ def generate_password(lenght):
     random_pass = string.ascii_letters + string.digits  + string.punctuation
     password = ''.join(random.choice(random_pass) for i in range(lenght))
     return password
-generated_password = generate_password(8)
+generated_password = generate_password(99) #Тут указывается кол-во символов для пароля
 print(generated_password)
 def check_password(generated_password):
     if len(generated_password) > 8:
